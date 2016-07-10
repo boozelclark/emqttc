@@ -6,6 +6,6 @@
   {applications, [kernel,
                   stdlib]},
   {included_applications, [getopt,
-                           gen_logger]},
+                           lager]},
   {env, []}
 ]}.

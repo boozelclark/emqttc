@@ -34,10 +34,9 @@ stop() ->
 %% ------------------------------------------------------------------
 
 init(_Args) ->
-    {ok, C} = emqttc:start_link([{host, "localhost"}, 
+    {ok, C} = emqttc:start_link([{host, "localhost"},
                                  {client_id, <<"simpleClient">>},
-                                 {reconnect, 3},
-                                 {logger, {console, info}}]),
+                                 {reconnect, 3}]),
     %% The pending subscribe
     emqttc:subscribe(C, <<"TopicA">>, 1),
     {ok, #state{mqttc = C, seq = 1}}.
@@ -85,4 +84,3 @@ terminate(_Reason, _State) ->
 
 code_change(_OldVsn, State, _Extra) ->
     {ok, State}.
-

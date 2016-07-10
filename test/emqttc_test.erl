@@ -67,9 +67,9 @@ clean_sess_test() ->
     emqttc:disconnect(C2).
 
 start_client() ->
-    emqttc:start_link([{logger, {error_logger, info}}]).
+    emqttc:start_link([]).
 
 start_client(Opts) ->
-    emqttc:start_link([{logger, {error_logger, info}}|Opts]).
+    emqttc:start_link([Opts]).
 
 -endif.
